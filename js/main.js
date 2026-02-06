@@ -75,3 +75,48 @@ const postsData = [
         date: "2023-12-25"
     }
 ];
+
+/****************
+ *  renderizado
+ * ****************/
+
+// cojo el contenedor donde irán las cards
+const gridContainer = document.getElementById('posts-grid');
+
+/**
+ * esta funcion recibe un array de post y los muestra en el contenedor
+ * @param {Array} 
+ */
+function renderPosts(posts) {
+    // Si no hay posts mostrare un mensaje de que no hya nada
+    if (posts.length === 0) {
+        gridContainer.innerHTML = '<p>No posts found.</p>';
+        announceToScreenReader("No posts found for this category.");
+        return;
+    }
+
+    // maopeo los datos a HTML y los insertamos en el contenedor
+    gridContainer.innerHTML = posts.map(post => `
+        <article class="card">
+            <img src="${post.image}" alt="Image for ${post.title}" loading="lazy">
+            <div class="card-content">
+                <h3>${post.title}</h3>
+                <div class="card-tags">
+                    <span class="badge">${post.category}</span>
+                </div>
+                <p>${post.description}</p>
+                
+                <div class="meta-info">
+                    <small>By ${post.author} | ${post.date}</small>
+                </div>
+
+                <a href="#" class="read-more" aria-label="Read more about ${post.title}">
+                    Read more
+                </a>
+            </div>
+        </article>
+    `).join('');
+}
+
+
+renderPosts(postsData);
