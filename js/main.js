@@ -120,3 +120,52 @@ function renderPosts(posts) {
 
 
 renderPosts(postsData);
+
+/********************************
+Avisos para lectores de pantalla 
+**********************************/
+
+/* Esto hace que el lector de pantalla lea el mensaje automáticamente.*/
+function announceToScreenReader(message) {
+    const statusContainer = document.getElementById('status-message');
+    statusContainer.textContent = message;
+}
+
+/******************
+ * filtrado
+ * ****************
+ */
+
+// cogemos todos los botones de filtro
+const filterButtons = document.querySelectorAll('.filter-btn');
+
+// le añado evento click a cada uno
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        // Quitamos la clase active de todos y ponemos el aria-pressed a false
+        filterButtons.forEach(btn => {
+            btn.classList.remove('active');
+            btn.setAttribute('aria-pressed', 'false');
+        });
+        
+        //activo el botón de pulsar
+        button.classList.add('active');
+        button.setAttribute('aria-pressed', 'true');
+
+        //Obtener la categoría seleccionada
+        const selectedCategory = button.getAttribute('data-category');
+
+        // filtracionde los datos
+        // Si es 'all', mostramos todo, si no muestro el que pida
+        const filteredPosts = selectedCategory === 'all' 
+            ? postsData 
+            : postsData.filter(post => post.category === selectedCategory);
+
+        //lo volvemos a mostrar
+        renderPosts(filteredPosts);
+
+        //accesibilidad, sonido para mostrar al cliente que se ha hecho un cambio
+        const count = filteredPosts.length;
+        announceToScreenReader(`Showing ${count} posts for category ${selectedCategory}`);
+    });
+});
