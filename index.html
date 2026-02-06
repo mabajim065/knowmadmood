@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowmadmood - Post Listing</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="logo">Knowmadmood</div>
+            
+            <button id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-controls="sidebar-nav" aria-label="Open menu">
+                ☰
+            </button>
+
+            <div class="header-actions">
+                <a href="#">Login</a>
+                <a href="#">Register</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="layout-wrapper">
+        <aside id="sidebar-nav" class="sidebar">
+            <nav aria-label="Main Navigation">
+                <button id="menu-close" class="menu-close" aria-label="Close menu">✕</button>
+                <ul class="nav-list">
+                    <li><a href="#" class="nav-link active" aria-current="page">Home</a></li>
+                    <li><a href="#" class="nav-link">About</a></li>
+                    <li><a href="#" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main id="main-content" class="main-content">
+            <header class="content-header">
+                <h1>Home</h1>
+                <p>Welcome to the home page</p>
+            </header>
+
+            <section class="filters" aria-label="Post filters">
+                <button class="filter-btn active" data-category="all" aria-pressed="true">All posts</button>
+                <button class="filter-btn" data-category="Art" aria-pressed="false">Art</button>
+                <button class="filter-btn" data-category="Development" aria-pressed="false">Development</button>
+                <button class="filter-btn" data-category="Lifestyle" aria-pressed="false">Lifestyle</button>
+                <button class="filter-btn" data-category="Accessories" aria-pressed="false">Accessories</button>
+            </section>
+
+            <h2 class="section-title">Latest Posts</h2>
+
+            <div id="status-message" class="sr-only" aria-live="polite"></div>
+
+            <div id="posts-grid" class="posts-grid">
+                <p>Loading posts...</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
