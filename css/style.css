@@ -1,0 +1,75 @@
+/*******************
+token y reset  
+*********************/
+
+:root {
+    /* Colores */
+    --color-bg-body: #f4f4f4;
+    --color-bg-header: #2d2d2d;
+    --color-text-header: #ffffff;
+    --color-text-body: #333333;
+    --color-card-bg: #ffffff;
+    --color-btn-primary: #e0e0e0;
+    --color-btn-active: #333333;
+    --color-btn-text: #000000;
+    --color-btn-text-active: #ffffff;
+
+    /* Espaciados */
+    --spacing-xs: 0.5rem;   /* 8px */
+    --spacing-sm: 1rem;     /* 16px */
+    --spacing-md: 1.5rem;   /* 24px */
+    --spacing-lg: 2rem;     /* 32px */
+
+    /* Tipografía */
+    --font-family: system-ui, -apple-system, sans-serif;
+    --font-size-base: 16px;
+}
+/* Reset básico */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+/*estilos del body */
+body {
+    font-family: var(--font-family);
+    background-color: var(--color-bg-body);
+    color: var(--color-text-body);
+    line-height: 1.5;
+}
+
+/********************
+acesibilidad utils 
+*********************/
+/* esconder elementos pero dejarlos para screen readers */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Skip link, solo aparece al hacer tab */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #000;
+    color: #fff;
+    padding: 8px;
+    z-index: 100;
+}
+.skip-link:focus {
+    top: 0;
+}
+
+/* foco visible*/
+:focus-visible {
+    outline: 3px solid #005fcc;
+    outline-offset: 2px;
+}
