@@ -169,3 +169,32 @@ filterButtons.forEach(button => {
         announceToScreenReader(`Showing ${count} posts for category ${selectedCategory}`);
     });
 });
+
+/******************
+ * menu en mobile
+*******************/
+/*creo las constantes paraa abrir y cerrar el menu*/
+const menuToggle = document.getElementById('menu-toggle');
+const menuClose = document.getElementById('menu-close');
+const sidebar = document.getElementById('sidebar-nav');
+
+// función  abrir menu
+if (menuToggle) {
+    menuToggle.addEventListener('click', () => {
+        sidebar.classList.add('active');
+        //atualizo
+        menuToggle.setAttribute('aria-expanded', 'true');
+        // mover el boton de cerrar al foco para que el usuario pueda cerrarlo sin problema
+        menuClose.focus();
+    });
+}
+
+// función para cerrar menu
+if (menuClose) {
+    menuClose.addEventListener('click', () => {
+        sidebar.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        //devuelvo el fooc al boton de abrir 
+        menuToggle.focus();
+    });
+}
