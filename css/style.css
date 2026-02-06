@@ -115,3 +115,100 @@ header y nav
     /* Se oculta en desktop */
     display: block; 
 }
+
+/****************************************
+layoud principal (Sidebar + Main)
+*****************************************/
+.layout-wrapper {
+    display: flex;
+    min-height: calc(100vh - 60px);
+    /*posicionar el sidebar mobile */
+    position: relative; 
+}
+
+/* estilos base del sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    background-color: #fff;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    transform: translateX(-100%); 
+    transition: transform 0.3s ease;
+    z-index: 50;
+    padding: var(--spacing-md);
+}
+
+.sidebar.active {
+    /* Visible cuando está activo */
+    transform: translateX(0); 
+}
+/* botón para cerrar el menú en mobile */
+.menu-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    float: right;
+    margin-bottom: var(--spacing-sm);
+}
+
+.nav-list {
+    list-style: none;
+    clear: both;
+}
+
+.nav-list li {
+    margin-bottom: var(--spacing-sm);
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--color-text-body);
+    display: block;
+    padding: 0.5rem;
+}
+
+.nav-link:hover, .nav-link.active {
+    background-color: #eee;
+    font-weight: bold;
+}
+
+/* contenedor principal */
+.main-content {
+    flex: 1;
+    padding: var(--spacing-md);
+    width: 100%;
+}
+
+/******************
+filtros
+*******************/
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-lg);
+}
+
+.filter-btn {
+    padding: 0.5rem 1rem;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s;
+}
+
+.filter-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.filter-btn.active {
+    background-color: var(--color-btn-active);
+    color: var(--color-btn-text-active);
+    border-color: var(--color-btn-active);
+}
+
